@@ -32,7 +32,7 @@
 - Project_EventMangementSystem/
    - Event-Frontend/src/   - #frontend_files
       - src/main/
-         - java/com/      - #java_files
+         - java/com/      - #backend_files
          - resources/     - #application.properties
    - otherfiles
    - readme.md
