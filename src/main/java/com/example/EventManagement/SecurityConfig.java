@@ -45,10 +45,10 @@ public class SecurityConfig {
     @Value("${admin.name:Shubhangam Pandey}")
     private String adminName;
 
-    @Value("${admin.email:admin@EventHub.com}")
+    @Value("${admin.email:your  custom email}")
     private String adminEmail;
 
-    @Value("${admin.password:abcd}")
+    @Value("${admin.password:your custom pass}")
     private String adminPassword;
 
     @Value("${admin.organization:Event Hub}")
@@ -63,7 +63,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/events/**").permitAll()
                 .requestMatchers("/error").permitAll()
-                .requestMatchers("/api/admin/**").hasRole("ADMIN") // ✅ Must match the token claim
+                .requestMatchers("/api/admin/**").hasRole("ADMIN") 
                 .anyRequest().authenticated()
             )
             .authenticationProvider(authenticationProvider())
@@ -117,7 +117,7 @@ public class SecurityConfig {
                 );
                 admin.setRole("ADMIN");
                 userRepository.save(admin);
-                System.out.println("✅ Admin created: " + adminEmail);
+                System.out.println("Admin created: " + adminEmail);
             }
         };
     }

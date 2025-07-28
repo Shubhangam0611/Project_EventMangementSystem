@@ -15,7 +15,6 @@ function AdminDashboard() {
       return;
     }
 
-    // Normalize role for comparison
     const effectiveRole = userRole?.startsWith("ROLE_") ? userRole : `ROLE_${userRole}`;
     if (effectiveRole !== "ROLE_ADMIN") {
       alert("Access denied: You are not an admin.");

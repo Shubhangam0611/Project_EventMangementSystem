@@ -23,7 +23,6 @@ public class Event {
     
     public Event() {}
 
-    // constructor with organiser
     public Event(String title, String description, String location,
                  LocalDateTime startDateTime, LocalDateTime endDateTime, User organiser) {
         this.title = title;
@@ -34,7 +33,6 @@ public class Event {
         this.organiser = organiser;
     }
 
-    //Constructor without organiser (for demo or seeding)
     public Event(String title, String description, String location,
                  LocalDateTime startDateTime, LocalDateTime endDateTime) {
         this.title = title;
@@ -44,7 +42,6 @@ public class Event {
         this.endDateTime = endDateTime;
     }
 
-    
     public Long getId() {
         return id;
     }

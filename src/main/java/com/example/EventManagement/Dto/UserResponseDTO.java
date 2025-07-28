@@ -65,8 +65,6 @@ public class UserResponseDTO {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    
+    }   
 
 }

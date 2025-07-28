@@ -17,9 +17,9 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-    private final SecretKey SECRET_KEY = Keys.hmacShaKeyFor("mysupersecretkeyformyjwtapp12345678".getBytes(StandardCharsets.UTF_8));
+    private final SecretKey SECRET_KEY = Keys.hmacShaKeyFor("mysupersecretkeyformyjwtapp12345678"
+                                             .getBytes(StandardCharsets.UTF_8));
 
-    //Generate token with role
     public String generateToken(String username, String role) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("role", role); 
@@ -31,7 +31,7 @@ public class JwtUtil {
                 .setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) 
                 .signWith(SECRET_KEY, SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -40,7 +40,6 @@ public class JwtUtil {
         return extractClaim(token, Claims::getSubject);
     }
 
-    //Extract role from JWT
     public String extractRole(String token) {
         return extractAllClaims(token).get("role", String.class);
     }

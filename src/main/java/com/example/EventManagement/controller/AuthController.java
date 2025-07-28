@@ -1,4 +1,3 @@
-// AuthController.java
 package com.example.EventManagement.controller;
 
 import com.example.EventManagement.JwtSecurity.JwtUtil;
@@ -81,7 +80,8 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Email already exists!");
         }
 
-        String role = request.getEmail().equalsIgnoreCase("admin@EventHub.com") ? "ADMIN" : "USER";
+        String role = request.getEmail().equalsIgnoreCase
+                                         ("admin@EventHub.com") ? "ADMIN" : "USER";
 
         User user = new User(
             request.getName(),

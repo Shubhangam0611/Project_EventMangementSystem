@@ -16,7 +16,7 @@ function Navbar() {
     setRole(storedRole);
   };
   updateRole();
-  //listen for role change on login
+
   window,addEventListener("storage",updateRole);
 
   return()=>{

@@ -27,7 +27,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
-    // Skip filtering for auth routes (login, register)
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         return request.getServletPath().startsWith("/api/auth/");
@@ -43,9 +42,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         String token = null;
         String username = null;
 
-        // 🔐 Check header and extract token
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            token = authHeader.substring(7); // Remove "Bearer "
+            token = authHeader.substring(7);
             try {
                 username = jwtUtil.extractUsername(token);
             } catch (Exception e) {
@@ -55,15 +53,14 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             }
         }
 
-        // ✅ Proceed if username exists and context is unauthenticated
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
 
             if (jwtUtil.validateToken(token, userDetails)) {
-                String role = jwtUtil.extractRole(token); // Should return "ADMIN", not "ROLE_ADMIN"
-                System.out.println("✅ Extracted role from token: " + role);
+                String role = jwtUtil.extractRole(token); 
+                System.out.println("Extracted role from token: " + role);
 
-                SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role); // Spring expects ROLE_ prefix
+                SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role); 
 
                 UsernamePasswordAuthenticationToken authToken =
                     new UsernamePasswordAuthenticationToken(
@@ -75,10 +72,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authToken);
 
-                System.out.println("🔓 Authenticated: " + username + " as ROLE_" + role);
-                System.out.println("🔐 Granted Authorities: " + authToken.getAuthorities());
+                System.out.println(" Authenticated: " + username + " as ROLE_" + role);
+                System.out.println(" Granted Authorities: " + authToken.getAuthorities());
             } else {
-                System.out.println("❌ Invalid JWT for user: " + username);
+                System.out.println(" Invalid JWT for user: " + username);
             }
         }
 

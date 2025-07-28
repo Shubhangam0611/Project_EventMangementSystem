@@ -20,18 +20,16 @@ public class RegistrationRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-//user who is requesting registration
     @ManyToOne
     @JoinColumn(name = "user_id",nullable = false)
     private User user;
 
-    //event the user wants registerfor
     @ManyToOne
     @JoinColumn(name = "event_id",nullable = false)
     private Event event;
 
     @Column(nullable = false)
-    private String status ="PENDING"; //pending,approved/reject
+    private String status ="PENDING";
      
     @Column(nullable = false)
     private LocalDateTime createdAt;
@@ -89,7 +87,5 @@ public class RegistrationRequest {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-
-
 
 }

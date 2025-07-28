@@ -53,7 +53,8 @@ public class AdminController {
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<String> approveRequest(@PathVariable Long id) {
         RegistrationRequest request = registrationRequestRepo.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Request not found"));
+                .orElseThrow(() -> new ResponseStatusException
+                                   (HttpStatus.NOT_FOUND, "Request not found"));
 
         request.setStatus("APPROVED");
         registrationRequestRepo.save(request);

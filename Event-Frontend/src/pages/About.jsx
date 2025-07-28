@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 
 function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-white py-12 px-6 flex justify-center items-center">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100
+                   to-white py-12 px-6 flex justify-center items-center">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
@@ -10,7 +11,8 @@ function About() {
         className="max-w-5xl w-full bg-white shadow-2xl rounded-2xl p-10 border border-blue-200"
       >
         <motion.h1
-          className="text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text mb-6 tracking-tight"
+          className="text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r
+                    from-blue-600 to-indigo-600 text-transparent bg-clip-text mb-6 tracking-tight"
           whileHover={{ scale: 1.05 }}
         >
           Welcome to EventHub
@@ -27,8 +29,10 @@ function About() {
         >
           <h2 className="text-2xl font-semibold text-gray-800 mb-3">What is EventHub?</h2>
           <p className="text-gray-700 text-lg leading-relaxed">
-            <strong>EventHub</strong> is your one-stop platform for discovering, registering, and managing events effortlessly.
-            Whether you're a student, organizer, or admin — we make event participation smoother, smarter, and faster.
+            <strong>EventHub</strong> is your one-stop platform for discovering, registering,
+                                      and managing events effortlessly.
+                                      Whether you're a student, organizer, or admin — we make 
+                                      event participation smoother, smarter, and faster.
           </p>
         </motion.section>
 
@@ -67,7 +71,8 @@ function About() {
 
         {/* Box */}
         <motion.div
-          className="mt-12 bg-gradient-to-r from-indigo-500 to-blue-600 text-white p-6 rounded-xl shadow-lg text-center"
+          className="mt-12 bg-gradient-to-r from-indigo-500 to-blue-600
+                     text-white p-6 rounded-xl shadow-lg text-center"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4 }}
@@ -77,7 +82,8 @@ function About() {
           <p className="text-lg mb-4">Jump into the EventHub and never miss out again!</p>
           <a
             href="/events"
-            className="inline-block px-6 py-2 bg-white text-blue-600 font-semibold rounded-full hover:bg-blue-100 transition"
+            className="inline-block px-6 py-2 bg-white text-blue-600 font-semibold rounded-full
+                       hover:bg-blue-100 transition"
           >
             Browse Events
           </a>
@@ -86,7 +92,7 @@ function About() {
 
 
         <div className="mt-10 text-center text-sm text-gray-900">
-          © {new Date().getFullYear()} <span className="font-semibold">EventHub</span>. Made with ❤️ for every event.
+          © {new Date().getFullYear()} <span className="font-semibold">EventHub</span>.Made with ❤️ for every event.
         </div>
       </motion.div>
     </div>

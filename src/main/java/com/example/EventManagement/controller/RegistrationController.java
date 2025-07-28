@@ -51,7 +51,6 @@ public class RegistrationController {
         return ResponseEntity.ok("Event registration submitted. Awaiting admin approval.");
     }
 
-    // view all events the user has registered for
     @GetMapping("/my-registrations")
     public ResponseEntity<List<RegistrationRequestDTO>> getUserRegistrations(Principal principal) {
         String email = principal.getName();
