@@ -1,0 +1,6 @@
+<svg width="140" height="40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="140" height="40" rx="10" fill="#5a4bff"/>
+  <text x="70" y="27" font-size="18" fill="white" text-anchor="middle" font-family="Arial Black" font-weight="900">
+    EventHub
+  </text>
+</svg>

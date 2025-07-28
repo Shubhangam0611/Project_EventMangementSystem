@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/*custom image */
+.custom-image {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vw;
+  object-fit: cover;
+  filter: blur(2px);
+  z-index: -1;
+  opacity: 0.7;
+
+}
+
+/*for registration page*/
+.animated-bg {
+  background: linear-gradient(-45deg, #6a11cb, #350c0c, #43e97b, #050003);
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*for login page*/
+.login-bg {
+  background: linear-gradient(-45deg, #06070d, #f8cdda, #1fa2ff, #06070a);
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add common form styling */
+.auth-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 400px;
+}
+
+/* motin event styling */
+@layer utilities{
+  @keyframes marquee {
+    0%{
+      transform: translateX(100%);
+    }
+    100%{
+      transform: translateX(-100%);
+    
+  }
+}
+.animate-marquee{
+  animation: marquee 15s linear infinite;
+}
+
+}
